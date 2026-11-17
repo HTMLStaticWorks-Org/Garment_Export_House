@@ -71,20 +71,20 @@
       hamburger.addEventListener('click', () => {
         const isOpen = drawer.classList.toggle('open');
         hamburger.setAttribute('aria-expanded', String(isOpen));
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.documentElement.style.overflow = isOpen ? 'hidden' : '';
       });
       drawer.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
           drawer.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
         });
       });
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && drawer.classList.contains('open')) {
           drawer.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
         }
       });
     }
